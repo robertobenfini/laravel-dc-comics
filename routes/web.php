@@ -16,3 +16,5 @@ use App\Http\Controllers\ComicsController as ComicsController;
 */
 
 Route::resource('/', ComicsController::class);
+
+Route::resource('comics', ComicsController::class);
