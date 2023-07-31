@@ -22,7 +22,7 @@
             </div>
             @endforeach
             <div class="col-12 d-flex justify-content-center">
-                <button class="btn-load">LOAD MORE</button>
+            <a href="{{ Route('comics.create') }}" class="btn-load">ADD COMICS</a>
             </div>
             <div class="current_series">
                 CURRENT SERIES
