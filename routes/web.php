@@ -15,8 +15,4 @@ use App\Http\Controllers\ComicsController as ComicsController;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-})->name('homepage');
-
-Route::resource('comics', ComicsController::class);
+Route::resource('/', ComicsController::class);

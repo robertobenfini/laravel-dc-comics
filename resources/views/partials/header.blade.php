@@ -19,7 +19,7 @@
                         <a href="#" class="link">Characters</a>
                     </li>
                     <li class="nav-link {{ Route::currentRouteName() === 'homepage' ? 'fw-bold active_li' : ''}}">
-                        <a href="{{ route('homepage') }}" class="link {{ Route::currentRouteName() === 'homepage' ? 'fw-bold active_a' : ''}}">Comics</a>
+                        <a href="{{ route('index') }}" class="link {{ Route::currentRouteName() === 'index' ? 'fw-bold active_a' : ''}}">Comics</a>
                     </li>
                     <li class="nav-link">
                         <a href="#" class="link">Movies</a>
