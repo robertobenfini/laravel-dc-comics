@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Comic;
 use Illuminate\Http\Request;
 
+use Illuminate\Support\Facades\Validator;
+
 class ComicController extends Controller
 {
     /**
@@ -36,7 +38,7 @@ class ComicController extends Controller
      */
     public function store(Request $request)
     {
-        $form_data = $request->all();
+        $form_data = $this->validation($request->all());
 
         $comic = new Comic();
 
@@ -81,7 +83,7 @@ class ComicController extends Controller
      */
     public function update(Request $request, Comic $comic)
     {
-        $form_data = $request->All();
+        $form_data = $this->validation($request->all());
 
         $comic->update($form_data);
 
@@ -97,7 +99,36 @@ class ComicController extends Controller
     public function destroy(Comic $comic)
     {
         $comic->delete();
-        
+
         return redirect()->route('comics.index');
     }
+
+    private function validation($data)
+    {
+        $validator = Validator::make($data,
+        
+            [
+                'title'         =>  'required|max:50',
+                'description'   =>  'required',
+                'thumb'         =>  'required',
+                'series'        =>  'required|max:20'
+            ],
+
+            [
+                'title.required'        =>  'Il titolo è obbligatorio',
+                'title.max'             =>  'Il titolo deve avere una lunghezza massima di :max caratteri',
+
+                'description.required'  =>  'La descrizione è obbligatoria',
+
+                'thumb.required'        =>  'La copertina è obbligatoria',
+
+                'series.required'       =>  'La serie è obbligatoria',
+                'series.max'            =>  'La serie deve avere una lunghezza massima di :max caratteri'
+            ]
+        
+        )->validate();
+
+        return $validator;
+    }
+
 }
