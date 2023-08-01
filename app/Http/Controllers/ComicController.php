@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Comic;
 use Illuminate\Http\Request;
 
-class ComicsController extends Controller
+class ComicController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -37,15 +37,15 @@ class ComicsController extends Controller
     public function store(Request $request)
     {
         $form_data = $request->all();
+        
+        $comic->fill($form_data);
 
         $comic = new Comic();
 
-        $comic->title = $form_data['title'];
-        $comic->description = $form_data['description'];
 
         $comic->save();
 
-        return redirect()->route('comics.show', $comic->id);
+        return redirect()->route('comics.index', $comic->id);
     }
 
     /**

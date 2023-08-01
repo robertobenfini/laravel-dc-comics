@@ -23,6 +23,7 @@
             @endforeach
             <div class="col-12 d-flex justify-content-center">
             <a href="{{ Route('comics.create') }}" class="btn-load">ADD COMICS</a>
+            <a href="{{ Route('comics.edit', $comic->id) }}" class="btn-load ms-2">EDIT</a>
             </div>
             <div class="current_series">
                 CURRENT SERIES

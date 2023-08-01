@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
-use App\Http\Controllers\ComicsController as ComicsController;
+use App\Http\Controllers\ComicController as ComicController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,6 +15,6 @@ use App\Http\Controllers\ComicsController as ComicsController;
 |
 */
 
-Route::resource('/', ComicsController::class);
+Route::resource('/', ComicController::class);
 
-Route::resource('comics', ComicsController::class);
+Route::resource('comics', ComicController::class);
