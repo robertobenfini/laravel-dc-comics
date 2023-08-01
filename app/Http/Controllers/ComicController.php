@@ -37,11 +37,12 @@ class ComicController extends Controller
     public function store(Request $request)
     {
         $form_data = $request->all();
-        
-        $comic->fill($form_data);
 
         $comic = new Comic();
 
+        $comic->title = $form_data['title'];
+        $comic->description = $form_data['description'];
+        $comic->thumb = $form_data['thumb'];
 
         $comic->save();
 
@@ -67,7 +68,7 @@ class ComicController extends Controller
      */
     public function edit(Comic $comic)
     {
-        //
+        return view('comics.edit', compact('comic'));
     }
 
     /**
@@ -79,7 +80,11 @@ class ComicController extends Controller
      */
     public function update(Request $request, Comic $comic)
     {
-        //
+        $form_data = $request->All();
+
+        $comic->update($form_data);
+
+        return redirect()->route('comics', compact('comic'));
     }
 
     /**

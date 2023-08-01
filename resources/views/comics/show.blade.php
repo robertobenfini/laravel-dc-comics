@@ -80,4 +80,8 @@
         </div>
     </div>
 
+    <div class="d-flex justify-content-center">
+        <a href="{{ Route('comics.edit', $comic->id) }}" class="btn-load ms-2">EDIT</a>
+    </div>
+
 @endsection
