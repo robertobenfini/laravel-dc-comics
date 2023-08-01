@@ -84,7 +84,7 @@
         <a href="{{ Route('comics.edit', $comic->id) }}" class="btn-load">EDIT</a>
     </div>
     <div class="d-flex justify-content-center">
-        <form action="{{ Route('comics.destroy', $comic->id) }}" method="post" class="form-delete">
+        <form action="{{ Route('comics.destroy', $comic->id) }}" method="post" class="form-delete" onsubmit="return confirm('Sei sicuro di voler cancellare questo fumetto?')">
             @csrf
             @method('DELETE')
             <button class="btn bt-delete">DELETE</button>
