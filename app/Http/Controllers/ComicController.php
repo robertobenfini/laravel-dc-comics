@@ -43,6 +43,7 @@ class ComicController extends Controller
         $comic->title = $form_data['title'];
         $comic->description = $form_data['description'];
         $comic->thumb = $form_data['thumb'];
+        $comic->series = $form_data['series'];
 
         $comic->save();
 
@@ -95,6 +96,8 @@ class ComicController extends Controller
      */
     public function destroy(Comic $comic)
     {
-        //
+        $comic->delete();
+        
+        return redirect()->route('comics.index');
     }
 }

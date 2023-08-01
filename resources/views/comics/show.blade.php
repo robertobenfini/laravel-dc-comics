@@ -81,7 +81,14 @@
     </div>
 
     <div class="d-flex justify-content-center">
-        <a href="{{ Route('comics.edit', $comic->id) }}" class="btn-load ms-2">EDIT</a>
+        <a href="{{ Route('comics.edit', $comic->id) }}" class="btn-load">EDIT</a>
+    </div>
+    <div class="d-flex justify-content-center">
+        <form action="{{ Route('comics.destroy', $comic->id) }}" method="post" class="form-delete">
+            @csrf
+            @method('DELETE')
+            <button class="btn bt-delete">DELETE</button>
+        </form>
     </div>
 
 @endsection

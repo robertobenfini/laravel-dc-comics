@@ -24,6 +24,11 @@
                                 <input type="url" name="thumb" id="thumb" placeholder="Inserisci la copertina" class="form-control">
                             </div>
 
+                            <div class="col-12 my-3">
+                                <label class="control-label my-3">Titolo</label>
+                                <input type="text" name="series" id="series" placeholder="Inserisci il titolo" class="form-control">
+                            </div>
+
                             <button type="submit" class="btn btn-success">Salva</button>
                             
                         </div>
